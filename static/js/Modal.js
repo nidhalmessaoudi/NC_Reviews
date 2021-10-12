@@ -24,13 +24,13 @@ export default class Modal {
       modalTitle = "Sign up";
       modalLinkto =
         'Already have an account? <span class="anchor" id="type-switch">Sign in</span>';
-      modalAction = "/";
+      modalAction = "signup.php";
       inputs = this.signupInputs;
     } else {
       this.switchValue = "signup";
       modalTitle = "Sign in";
       modalLinkto = `Don't have an account? <span class="anchor" id="type-switch">Sign up</span>`;
-      modalAction = "/";
+      modalAction = "signin.php";
       inputs = this.signinInputs;
     }
 
@@ -44,9 +44,9 @@ export default class Modal {
                 <div class="modal-linkto">
                     <p>${modalLinkto}</p>
                 </div>
-                <form class="join-form" action="">
+                <form class="join-form" method="POST" action="/NCReviews/${modalAction}">
                     ${inputs}
-                    <button class="btn join-btn">${modalTitle}</button>
+                    <button type="submit" class="btn join-btn">${modalTitle}</button>
                 </form>
             </div>
             </div>
