@@ -31,7 +31,7 @@ body {
 
 .form-control {
   display: block;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.1);
   color: #9a9483;
   padding: 12px;
   margin: 8px 0;
@@ -127,7 +127,7 @@ body {
 
 /* Modal */
 .modal-container {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -145,7 +145,7 @@ body {
 }
 
 .overlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.6);
@@ -177,6 +177,7 @@ body {
 .join-btn {
   padding: 10px 24px;
   margin: 1.2rem 0;
+  background-color: #ffffff;
 }
 
 .modal-linkto {
