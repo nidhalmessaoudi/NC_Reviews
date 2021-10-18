@@ -134,16 +134,6 @@ body {
   z-index: 900;
 }
 
-.modal {
-  z-index: 999;
-  background-color: #18191a;
-  width: 22rem;
-  height: 24rem;
-  padding: 1rem 2rem;
-  border-radius: 5px;
-  color: #ffffff;
-}
-
 .overlay {
   position: fixed;
   top: 0;
@@ -153,6 +143,16 @@ body {
   height: 100vh;
   z-index: 888;
   animation: overlayAppear 300ms;
+}
+
+.modal {
+  z-index: 999;
+  background-color: #18191a;
+  min-width: 22rem;
+  min-height: 24rem;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  color: #ffffff;
 }
 
 .modal-top {
@@ -183,6 +183,15 @@ body {
 .modal-linkto {
   text-align: center;
   margin-bottom: 1.2rem;
+}
+
+.form-control__danger {
+  border: 1px solid red;
+}
+
+.form-label__danger {
+  color: red;
+  font-size: 14px;
 }
 
 @keyframes modalAppear {

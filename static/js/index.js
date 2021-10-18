@@ -1,4 +1,5 @@
 import Modal from "./Modal.js";
+import signupSubmitHandler from "./signupValidate.js";
 
 const searchInput = document.getElementById("search-field");
 const navItems = document.getElementById("nav-items");
@@ -7,6 +8,8 @@ navItems.addEventListener("click", function (e) {
   const clicked = e.target;
   if (clicked.dataset?.for === "signup") {
     new Modal("signup");
+    const signupForm = document.getElementById("signup-form");
+    signupForm.addEventListener("submit", signupSubmitHandler);
   } else {
     new Modal("signin");
   }

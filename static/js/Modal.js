@@ -44,7 +44,7 @@ export default class Modal {
                 <div class="modal-linkto">
                     <p>${modalLinkto}</p>
                 </div>
-                <form class="join-form" method="POST" action="/NCReviews/${modalAction}">
+                <form class="join-form" id="${type}-form" method="POST" action="/NCReviews/${modalAction}">
                     ${inputs}
                     <button type="submit" class="btn join-btn">${modalTitle}</button>
                 </form>

@@ -12,8 +12,19 @@ function signup_user() {
 
     $username = htmlspecialchars($_POST["username"]);
     $email = htmlspecialchars($_POST["email"]);
-    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+    $password = $_POST["password"];
+    $password_confirm = $_POST["passwordConfirm"];
 
+    if (!$username || !$email || !$password || !$password_confirm) {
+        return "Missing some credentials!";
+    }
+
+    if ($password !== $password_confirm) {
+        return "Password and it's confirm are not the same!";
+    }
+
+    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+    
     $signup_stmt = 
         mysqli_prepare($mysqli, "INSERT INTO users(username, email, password) VALUES(?, ?, ?)");
 
@@ -30,8 +41,6 @@ function handle_errors($stmt) {
         $tmp = explode(".", mysqli_stmt_error($stmt));
         $already_used_field = rtrim(end($tmp),"'");
         $error = "The $already_used_field is already used!";
-    } else if (mysqli_stmt_errno($stmt) === 1364) {
-        $error = "Missing some credentials!";
     }
     return $error;
 }
