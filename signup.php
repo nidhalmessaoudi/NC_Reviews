@@ -1,6 +1,7 @@
 <?php
 include("utils/CONFIG.php");
 include("utils/dbConnection.php");
+include("includes/head.php");
 
 $error = null;
 if ($_POST) {
@@ -45,9 +46,28 @@ function handle_errors($stmt) {
     return $error;
 }
 
-// FOR TESTING
-$redirect_url = URL . "/index.php";
-header(
-    "Location: " . ($error === null ? $redirect_url : $redirect_url . "?error=" . urlencode($error))
-);
-exit();
+echo "<title>NC Reviews | Sign Up</title></head>";
+if (!$error) {
+    header("refresh:3;url=index.php");
+
+    echo <<<EOF
+    <body class="join-pages">
+        <h1>SUCCESS</h1>
+    </body>
+    </html>
+    EOF;
+} else {
+    echo <<<EOF
+    <body class="join-pages">
+        <script type="module">
+            import Modal from "./static/js/Modal.js";
+            import { createError } from "./static/js/helpers.js";
+
+            const error = "$error";
+            const signupModal = new Modal("signup", false, false);
+            signupModal.modalForm.insertAdjacentElement("afterbegin", createError(error));
+        </script>
+    </body>
+    </html>
+    EOF;
+}

@@ -8,6 +8,10 @@ body {
   font-family: "Nunito", sans-serif;
 }
 
+.join-pages {
+  background-color: #eeeeee;
+}
+
 .main-container {
   padding: 3% 8%;
 }
@@ -149,7 +153,7 @@ body {
   z-index: 999;
   background-color: #18191a;
   min-width: 22rem;
-  min-height: 24rem;
+  min-height: 26rem;
   padding: 1rem 2rem;
   border-radius: 5px;
   color: #ffffff;

@@ -1,9 +1,4 @@
-function createError(msg) {
-  const errorLabel = document.createElement("p");
-  errorLabel.classList.add("form-label__danger");
-  errorLabel.textContent = msg;
-  return errorLabel;
-}
+import { createError } from "./helpers.js";
 
 export default function signupSubmitHandler(e) {
   const form = e.target;
